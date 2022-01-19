@@ -5,7 +5,7 @@ require("dotenv").config();
 const postRoutes = require("./routes/post-routes");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3003;
 
 // Register middleware
 app.use(cors());
@@ -16,8 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/posts", postRoutes);
 
 app.listen(PORT, (error) => {
-	if (error) {
-		return console.log(error);
-	}
-	console.log(`Server is live on port: ${PORT}`);
+  if (error) {
+    return console.log(error);
+  }
+  console.log(`Server is live on port: ${PORT}`);
 });
+
+module.exports = app;
